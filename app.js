@@ -12,8 +12,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+const words = require('./words');
+
 app.get('/', (req, res) => {
-    res.render('home');
+    let word = words.words[Math.floor(Math.random() * words.words.length)];
+    word = word.toUpperCase();
+    res.render('home', { word });
 })
 
 app.listen(3000, () => {
