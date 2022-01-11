@@ -1,24 +1,21 @@
-function input(e) {
-	let tbInput = document.getElementById('tbInput');
-	tbInput.value = tbInput.value + e.value;
-}
+const express = require('express');
+const app = express();
+const path = require('path');
+const ejsMate = require('ejs-mate');
+const methodOverride = require('method-override');
 
-function del() {
-	var tbInput = document.getElementById('tbInput');
-	tbInput.value = tbInput.value.substr(0, tbInput.value.length - 1);
-}
+app.engine('ejs', ejsMate);
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-function load() {
-	var array = new Array();
+app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
+app.use(express.static(path.join(__dirname, 'public')));
 
-	while (array.length < 10) {
-		var temp = Math.round(Math.random() * 9);
-		if (!contain(array, temp)) {
-			array.push(temp);
-		}
-	}
-	for (i = 0; i < 10; i++) {
-		var btn = document.getElementById('btn' + i);
-		btn.value = array[i];
-	}
-}
+app.get('/', (req, res) => {
+    res.render('home');
+})
+
+app.listen(3000, () => {
+	console.log('Listening on port 3000');
+});
