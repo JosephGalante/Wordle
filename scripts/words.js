@@ -1,4 +1,4 @@
-words = ['which',
+const words = ['which',
     'there',
     'their',
     'about',

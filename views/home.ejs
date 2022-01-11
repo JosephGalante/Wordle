@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+
+<body>
+
+    <div class="container-sm">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 justify-content-center">
+                <h1 class="mb-5">WORDLE</h1>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col">
+
+            <div class="col my-2 try1 d-flex justify-content-center" id="try1">
+                <input class="letter mx-1" type="text" maxlength="1" autofocus>
+                <input class="letter mx-1" type="text" maxlength="1">
+                <input class="letter mx-1" type="text" maxlength="1">
+                <input class="letter mx-1" type="text" maxlength="1">
+                <input class="letter mx-1" type="text" maxlength="1">
+                <button type="button" class="btn btn-secondary" onclick="test(id)" id="poop">Enter</button>
+            </div>
+            <div class="col my-2 try2 d-flex justify-content-center">
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <button type="button" class="btn btn-secondary" disabled>Enter</button>
+            </div>
+            <div class="col my-2 try3 d-flex justify-content-center">
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <button type="button" class="btn btn-secondary" disabled>Enter</button>
+            </div>
+            <div class="col my-2 try4 d-flex justify-content-center">
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <button type="button" class="btn btn-secondary" disabled>Enter</button>
+            </div>
+            <div class="col my-2 try5 d-flex justify-content-center">
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <button type="button" class="btn btn-secondary" disabled>Enter</button>
+            </div>
+            <div class="col my-2 try6 d-flex justify-content-center">
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <button type="button" class="btn btn-secondary" disabled>Enter</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+
+
+</html>
