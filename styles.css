@@ -1,0 +1,19 @@
+h1{
+    text-align: center;
+    border-bottom: thin solid darkgrey;
+    letter-spacing: .25em;
+}
+
+.col{
+    text-align: center;
+}
+
+.letter{
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+    text-transform: capitalize;
+}
+
+
