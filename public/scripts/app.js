@@ -2,11 +2,14 @@ function test(e) {
 	
 	const letters = document.getElementById(e).parentNode.getElementsByClassName('letter');
 	const button = document.getElementById(e);
+	button.disabled = true;
+	
 	const attempt = [letters[0].value.toUpperCase(), letters[1].value.toUpperCase(), letters[2].value.toUpperCase(), letters[3].value.toUpperCase(), letters[4].value.toUpperCase()];
 
 	const wordleArray = Array.from(wordle);
 
-	button.disabled = true;
+	let solved = true;
+	
 	for (let i = 0; i < wordleArray.length; i++){
 		letters[i].disabled = true;
 		
@@ -17,14 +20,16 @@ function test(e) {
 		else if (wordleArray.includes(attempt[i])) {
 			letters[i].style.backgroundColor = "#ffc800";
 			letters[i].style.color = "white";
+			solved = false;
 		}
 		else {
 			letters[i].style.backgroundColor = "#b80000";
 			letters[i].style.color = "white";
+			solved = false;
 		}
 	}
 
-	if (e !== "attempt6") {
+	if (!solved && e !== "attempt6") {
 		enableNext(e);
 	}
 	
