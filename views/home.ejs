@@ -14,6 +14,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/scripts/app.js"></script>
 </head>
 
 <body onload="startTimer()">
@@ -22,86 +23,105 @@
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8 justify-content-center">
-                <h1 class="mb-5">WORDLE</h1>
-
+                <h1 class="mb-2">WORDLE</h1>
             </div>
-
             <div class="col-2"></div>
         </div>
     </div>
 
     <div class="container">
         <div class="col">
+            <div class="h3 my-2" id="timer">
+                "00:00:00.00"
+            </div>
 
             <div class="col my-2 try1 d-flex justify-content-center" id="try1">
-                <input class="letter mx-1" type="text" maxlength="1" autofocus>
-                <input class="letter mx-1" type="text" maxlength="1">
-                <input class="letter mx-1" type="text" maxlength="1">
-                <input class="letter mx-1" type="text" maxlength="1">
-                <input class="letter mx-1" type="text" maxlength="1">
-                <button type="button" class="ms-2 btn btn-secondary" onclick="test(id)" id="attempt1">Enter</button>
+                <input class="letter mx-1" type="text" maxlength="1" autofocus autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" autocomplete="off">
+                <button type="button" class="ms-2 btn btn-secondary" id="attempt1">Enter</button>
             </div>
             <div class="col my-2 try2 d-flex justify-content-center">
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
                 <button type="button" class="ms-2 btn btn-secondary" disabled onclick="test(id)"
                     id="attempt2">Enter</button>
             </div>
             <div class="col my-2 try3 d-flex justify-content-center">
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
                 <button type="button" class="ms-2 btn btn-secondary" disabled onclick="test(id)"
                     id="attempt3">Enter</button>
             </div>
             <div class="col my-2 try4 d-flex justify-content-center">
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
                 <button type="button" class="ms-2 btn btn-secondary" disabled onclick="test(id)"
                     id="attempt4">Enter</button>
             </div>
             <div class="col my-2 try5 d-flex justify-content-center">
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
                 <button type="button" class="ms-2 btn btn-secondary" disabled onclick="test(id)"
                     id="attempt5">Enter</button>
             </div>
             <div class="col my-2 try6 d-flex justify-content-center">
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <input class="letter mx-1" type="text" maxlength="1" disabled>
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
+                <input class="letter mx-1" type="text" maxlength="1" disabled autocomplete="off">
                 <button type="button" class="ms-2 btn btn-secondary" disabled onclick="test(id)"
                     id="attempt6">Enter</button>
             </div>
 
-            <div class="h3 " id="timer">
-                "00:00:00.00"
-            </div>
+
         </div>
 
     </div>
 
 </body>
 
+
 <script>
-    const wordle = '<%=word%>';
-    console.log(wordle);
+    const buttons = ['attempt1', 'attempt2', 'attempt3', 'attempt4', 'attempt5', 'attempt6'];
+
+    for (let j = 0; j < buttons.length; j++) {
+        // console.log(button)
+        let inputs = document.getElementById(buttons[j]).parentNode.getElementsByClassName('letter');
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].onkeyup = function () {
+                if (i !== 4 && inputs[i].value.length === 1) {
+                    inputs[i + 1].focus();
+                }
+                else if (i === 4 && inputs[i].value.length === 1) {
+                    const tempBtn = document.getElementById(buttons[j]);
+                    tempBtn.focus();
+                }
+            }
+        }
+    }
+
+
+
 </script>
 
-<script src="/scripts/app.js"></script>
+<script src="/scripts/randomWord.js"></script>
+
 <script src="/scripts/timer.js"></script>
 
 </html>
