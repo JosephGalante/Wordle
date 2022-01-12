@@ -10,14 +10,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-const words = require('./words');
-
 app.get('/', (req, res) => {
-    let word = words.words[Math.floor(Math.random() * words.words.length)];
-    word = word.toUpperCase();
-    res.render('home', { word });
+    res.render('home');
 })
 
-app.listen(3000, () => {
-	console.log('Listening on port 3000');
+app.listen(3000, err =>{
+    err ? 
+    console.log("Error in server setup") :
+    console.log("Listening on Port 3000")
 });
