@@ -2,14 +2,13 @@ let dirtyWordle = wordBank[Math.floor(Math.random() * wordBank.length)];
 const wordle = dirtyWordle.toUpperCase();
 
 let banned = [];
+let partial = [];
 let correct = [];
 console.log(wordle);
 
 function test(e) {
-	const letters = document.getElementById(e).parentNode.getElementsByClassName('letter');
+	let letters = document.getElementById(e).parentNode.getElementsByClassName('letter');
 	const button = document.getElementById(e);
-	button.disabled = true;
-
 	const attempt = [
 		letters[0].value.toUpperCase(),
 		letters[1].value.toUpperCase(),
@@ -18,47 +17,61 @@ function test(e) {
 		letters[4].value.toUpperCase()
 	];
 
-	const wordleArray = Array.from(wordle);
+	const userGuess = attempt.join('');
+	if (all5.includes(userGuess)) {
+		button.disabled = true;
+		const wordleArray = Array.from(wordle);
 
-	let solved = true;
+		let solved = true;
 
-	for (let i = 0; i < wordleArray.length; i++) {
-		letters[i].disabled = true;
+		for (let i = 0; i < wordleArray.length; i++) {
+			letters[i].disabled = true;
 
-		if (attempt[i] === wordleArray[i]) {
-			letters[i].style.backgroundColor = '#2dd638';
-			letters[i].style.color = 'white';
-			correct.push(letters[i].value.toLowerCase());
-		} else if (wordleArray.includes(attempt[i])) {
-			letters[i].style.backgroundColor = '#ffc800';
-			letters[i].style.color = 'white';
-			solved = false;
-		} else {
-			letters[i].style.backgroundColor = '#b80000';
-			letters[i].style.color = 'white';
-			banned.push(letters[i].value.toLowerCase());
-			solved = false;
+			if (attempt[i] === wordleArray[i]) {
+				letters[i].style.backgroundColor = '#2dd638';
+				letters[i].style.color = 'white';
+				correct.push(letters[i].value.toLowerCase());
+			} else if (wordleArray.includes(attempt[i])) {
+				letters[i].style.backgroundColor = '#ffc800';
+				letters[i].style.color = 'white';
+				partial.push(letters[i].value.toLowerCase());
+				solved = false;
+			} else {
+				letters[i].style.backgroundColor = '#b80000';
+				letters[i].style.color = 'white';
+				banned.push(letters[i].value.toLowerCase());
+				solved = false;
+			}
+		}
+
+		for (cor of correct) {
+			let letter = document.getElementById(cor);
+			letter.style.backgroundColor = '#2dd638';
+			letter.style.color = 'white';
+		}
+
+		for (par of partial) {
+			let letter = document.getElementById(par);
+			letter.style.backgroundColor = '#ffc800';
+			letter.style.color = 'white';
+		}
+
+		for (ban of banned) {
+			let letter = document.getElementById(ban);
+			letter.style.backgroundColor = '#b80000';
+			letter.style.color = 'white';
+		}
+
+		if (!solved && e !== 'attempt6') {
+			enableNext(e);
+		}
+		if (solved) {
+			stopTimer();
 		}
 	}
-
-	for (cor of correct) {
-		let letter = document.getElementById(cor);
-		letter.style.backgroundColor = '#2dd638';
-		letter.style.color = 'white';
-	}
-
-	console.log(banned);
-	for (ban of banned) {
-		let letter = document.getElementById(ban);
-		letter.style.backgroundColor = '#b80000';
-		letter.style.color = 'white';
-	}
-
-	if (!solved && e !== 'attempt6') {
-		enableNext(e);
-	}
-	if (solved) {
-		stopTimer();
+	else {
+		letters[0].focus();
+		
 	}
 }
 
