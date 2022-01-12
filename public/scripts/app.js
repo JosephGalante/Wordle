@@ -1,5 +1,8 @@
 let dirtyWordle = wordBank[Math.floor(Math.random() * wordBank.length)];
 const wordle = dirtyWordle.toUpperCase();
+
+let banned = [];
+let correct = [];
 console.log(wordle);
 
 function test(e) {
@@ -25,6 +28,7 @@ function test(e) {
 		if (attempt[i] === wordleArray[i]) {
 			letters[i].style.backgroundColor = '#2dd638';
 			letters[i].style.color = 'white';
+			correct.push(letters[i].value.toLowerCase());
 		} else if (wordleArray.includes(attempt[i])) {
 			letters[i].style.backgroundColor = '#ffc800';
 			letters[i].style.color = 'white';
@@ -32,8 +36,22 @@ function test(e) {
 		} else {
 			letters[i].style.backgroundColor = '#b80000';
 			letters[i].style.color = 'white';
+			banned.push(letters[i].value.toLowerCase());
 			solved = false;
 		}
+	}
+
+	for (cor of correct) {
+		let letter = document.getElementById(cor);
+		letter.style.backgroundColor = '#2dd638';
+		letter.style.color = 'white';
+	}
+
+	console.log(banned);
+	for (ban of banned) {
+		let letter = document.getElementById(ban);
+		letter.style.backgroundColor = '#b80000';
+		letter.style.color = 'white';
 	}
 
 	if (!solved && e !== 'attempt6') {
@@ -53,9 +71,9 @@ function enableNext(e) {
 	for (let i = 0; i < nextLetters.length; i++) {
 		nextLetters[i].disabled = false;
 		if (i === 0) {
-			nextLetters[i].focus();	
+			nextLetters[i].focus();
 		}
-		nextLetters[i].onkeyup = function () {
+		nextLetters[i].onkeyup = function() {
 			if (i !== 4 && nextLetters[i].value.length === 1) {
 				nextLetters[i + 1].focus();
 			} else if (i === 4 && nextLetters[i].value.length === 1) {
@@ -63,6 +81,9 @@ function enableNext(e) {
 				tempBtn.focus();
 			}
 		};
+		nextLetters[i].addEventListener('keydown', function(e) {
+			stopKey(e, banned);
+		});
 	}
 }
 
@@ -114,3 +135,9 @@ el6.addEventListener(
 	},
 	false
 );
+
+const stopKey = (e, bannedLetters) => {
+	if (bannedLetters.indexOf(e.key) !== -1) {
+		e.preventDefault();
+	}
+};
