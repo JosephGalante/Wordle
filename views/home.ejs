@@ -16,14 +16,16 @@
     <link rel="stylesheet" href="/styles/styles.css">
 </head>
 
-<body>
+<body onload="startTimer()">
 
     <div class="container-sm">
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8 justify-content-center">
                 <h1 class="mb-5">WORDLE</h1>
+
             </div>
+
             <div class="col-2"></div>
         </div>
     </div>
@@ -45,7 +47,8 @@
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <button type="button" class="ms-2 btn btn-secondary" disabled onclick="test(id)" id="attempt2">Enter</button>
+                <button type="button" class="ms-2 btn btn-secondary" disabled onclick="test(id)"
+                    id="attempt2">Enter</button>
             </div>
             <div class="col my-2 try3 d-flex justify-content-center">
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
@@ -53,7 +56,8 @@
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <button type="button" class="ms-2 btn btn-secondary" disabled onclick="test(id)" id="attempt3">Enter</button>
+                <button type="button" class="ms-2 btn btn-secondary" disabled onclick="test(id)"
+                    id="attempt3">Enter</button>
             </div>
             <div class="col my-2 try4 d-flex justify-content-center">
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
@@ -61,7 +65,8 @@
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <button type="button" class="ms-2 btn btn-secondary" disabled onclick="test(id)" id="attempt4">Enter</button>
+                <button type="button" class="ms-2 btn btn-secondary" disabled onclick="test(id)"
+                    id="attempt4">Enter</button>
             </div>
             <div class="col my-2 try5 d-flex justify-content-center">
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
@@ -69,7 +74,8 @@
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <button type="button" class="ms-2 btn btn-secondary" disabled onclick="test(id)" id="attempt5">Enter</button>
+                <button type="button" class="ms-2 btn btn-secondary" disabled onclick="test(id)"
+                    id="attempt5">Enter</button>
             </div>
             <div class="col my-2 try6 d-flex justify-content-center">
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
@@ -77,18 +83,25 @@
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
                 <input class="letter mx-1" type="text" maxlength="1" disabled>
-                <button type="button" class="ms-2 btn btn-secondary" disabled onclick="test(id)" id="attempt6">Enter</button>
+                <button type="button" class="ms-2 btn btn-secondary" disabled onclick="test(id)"
+                    id="attempt6">Enter</button>
             </div>
 
+            <div class="h3 " id="timer">
+                "00:00:00.00"
+            </div>
         </div>
+
     </div>
+
 </body>
 
 <script>
-   const wordle = '<%=word%>';
-   console.log(wordle);
+    const wordle = '<%=word%>';
+    console.log(wordle);
 </script>
 
 <script src="/scripts/app.js"></script>
+<script src="/scripts/timer.js"></script>
 
 </html>
