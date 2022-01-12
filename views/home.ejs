@@ -14,7 +14,9 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/scripts/app.js"></script>
+    <link rel="stylesheet" href="/styles/keyboard.css">
+    <script src="/scripts/randomWord.js"></script>
+    
 </head>
 
 <body onload="startTimer()">
@@ -88,40 +90,47 @@
                 <button type="button" class="ms-2 btn btn-secondary" disabled onclick="test(id)"
                     id="attempt6">Enter</button>
             </div>
-
-
+            <div class="mt-5 pt-5">
+                <kbd class="mx-1">Q</kbd>
+                <kbd class="mx-1">W</kbd>
+                <kbd class="mx-1">E</kbd>
+                <kbd class="mx-1">R</kbd>
+                <kbd class="mx-1">T</kbd>
+                <kbd class="mx-1">Y</kbd>
+                <kbd class="mx-1">U</kbd>
+                <kbd class="mx-1">I</kbd>
+                <kbd class="mx-1">O</kbd>
+                <kbd class="mx-1">P</kbd>
+            </div>
+            <div class="mt-2">
+                <kbd class="mx-1">A</kbd>
+                <kbd class="mx-1">S</kbd>
+                <kbd class="mx-1">D</kbd>
+                <kbd class="mx-1">F</kbd>
+                <kbd class="mx-1">G</kbd>
+                <kbd class="mx-1">H</kbd>
+                <kbd class="mx-1">J</kbd>
+                <kbd class="mx-1">K</kbd>
+                <kbd class="mx-1">L</kbd>
+            </div>
+            <div class="mt-2">
+                <kbd class="mx-1">Z</kbd>
+                <kbd class="mx-1">X</kbd>
+                <kbd class="mx-1">C</kbd>
+                <kbd class="mx-1">V</kbd>
+                <kbd class="mx-1">B</kbd>
+                <kbd class="mx-1">N</kbd>
+                <kbd class="mx-1">M</kbd>
+            </div>
         </div>
-
     </div>
 
 </body>
 
 
-<script>
-    const buttons = ['attempt1', 'attempt2', 'attempt3', 'attempt4', 'attempt5', 'attempt6'];
-
-    for (let j = 0; j < buttons.length; j++) {
-        // console.log(button)
-        let inputs = document.getElementById(buttons[j]).parentNode.getElementsByClassName('letter');
-        for (let i = 0; i < inputs.length; i++) {
-            inputs[i].onkeyup = function () {
-                if (i !== 4 && inputs[i].value.length === 1) {
-                    inputs[i + 1].focus();
-                }
-                else if (i === 4 && inputs[i].value.length === 1) {
-                    const tempBtn = document.getElementById(buttons[j]);
-                    tempBtn.focus();
-                }
-            }
-        }
-    }
-
-
-
-</script>
-
-<script src="/scripts/randomWord.js"></script>
-
+<script src="/scripts/autoFocus.js"></script>
+<script src="/scripts/app.js"></script>
 <script src="/scripts/timer.js"></script>
+
 
 </html>
