@@ -1,38 +1,47 @@
+let dirtyWordle = wordBank[Math.floor(Math.random() * wordBank.length)];
+const wordle = dirtyWordle.toUpperCase();
+console.log(wordle);
+
 function test(e) {
-	
 	const letters = document.getElementById(e).parentNode.getElementsByClassName('letter');
 	const button = document.getElementById(e);
 	button.disabled = true;
-	
-	const attempt = [letters[0].value.toUpperCase(), letters[1].value.toUpperCase(), letters[2].value.toUpperCase(), letters[3].value.toUpperCase(), letters[4].value.toUpperCase()];
+
+	const attempt = [
+		letters[0].value.toUpperCase(),
+		letters[1].value.toUpperCase(),
+		letters[2].value.toUpperCase(),
+		letters[3].value.toUpperCase(),
+		letters[4].value.toUpperCase()
+	];
 
 	const wordleArray = Array.from(wordle);
 
 	let solved = true;
-	
-	for (let i = 0; i < wordleArray.length; i++){
+
+	for (let i = 0; i < wordleArray.length; i++) {
 		letters[i].disabled = true;
-		
+
 		if (attempt[i] === wordleArray[i]) {
-			letters[i].style.backgroundColor = "#2dd638";
-			letters[i].style.color = "white";
-		}
-		else if (wordleArray.includes(attempt[i])) {
-			letters[i].style.backgroundColor = "#ffc800";
-			letters[i].style.color = "white";
+			letters[i].style.backgroundColor = '#2dd638';
+			letters[i].style.color = 'white';
+		} else if (wordleArray.includes(attempt[i])) {
+			letters[i].style.backgroundColor = '#ffc800';
+			letters[i].style.color = 'white';
 			solved = false;
-		}
-		else {
-			letters[i].style.backgroundColor = "#b80000";
-			letters[i].style.color = "white";
+		} else {
+			letters[i].style.backgroundColor = '#b80000';
+			letters[i].style.color = 'white';
 			solved = false;
 		}
 	}
 
-	if (!solved && e !== "attempt6") {
+	if (!solved && e !== 'attempt6') {
 		enableNext(e);
 	}
-	
+	if (solved) {
+		stopTimer();
+	}
 }
 
 function enableNext(e) {
@@ -41,7 +50,67 @@ function enableNext(e) {
 	nextButton.disabled = false;
 
 	const nextLetters = nextButton.parentNode.getElementsByClassName('letter');
-	for (let i = 0; i < nextLetters.length; i++){
+	for (let i = 0; i < nextLetters.length; i++) {
 		nextLetters[i].disabled = false;
+		if (i === 0) {
+			nextLetters[i].focus();	
+		}
+		nextLetters[i].onkeyup = function () {
+			if (i !== 4 && nextLetters[i].value.length === 1) {
+				nextLetters[i + 1].focus();
+			} else if (i === 4 && nextLetters[i].value.length === 1) {
+				const tempBtn = document.getElementById(nextButtonId);
+				tempBtn.focus();
+			}
+		};
 	}
 }
+
+const el1 = document.getElementById('attempt1'),
+	el2 = document.getElementById('attempt2'),
+	el3 = document.getElementById('attempt3'),
+	el4 = document.getElementById('attempt4'),
+	el5 = document.getElementById('attempt5'),
+	el6 = document.getElementById('attempt6');
+el1.addEventListener(
+	'click',
+	function() {
+		test(el1.id);
+	},
+	false
+);
+el2.addEventListener(
+	'click',
+	function() {
+		test(el2.id);
+	},
+	false
+);
+el3.addEventListener(
+	'click',
+	function() {
+		test(el3.id);
+	},
+	false
+);
+el4.addEventListener(
+	'click',
+	function() {
+		test(el4.id);
+	},
+	false
+);
+el5.addEventListener(
+	'click',
+	function() {
+		test(el5.id);
+	},
+	false
+);
+el6.addEventListener(
+	'click',
+	function() {
+		test(el6.id);
+	},
+	false
+);
